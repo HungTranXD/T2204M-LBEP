@@ -19,12 +19,12 @@ int main ()
 			if (currLen == 1) {
 				currIdx = i;
 			}
-		} else {
-			if (currSum > maxSum) {
+			if(currSum > maxSum) {
 				maxLen = currLen;
 				maxSum = currSum;
 				maxIdx = currIdx;
 			}
+		} else {
 			currLen = 0;
 			currSum = 0;
 		}

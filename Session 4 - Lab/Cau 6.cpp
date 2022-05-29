@@ -12,20 +12,21 @@ int main ()
 		scanf("%d", &ary[i]);
 	}
 	int maxLen = 0, maxIdx = 0, currLen = 0, currIdx = 0;
-	for (int i = 0; i < n; i++) {
-		if (ary[i] > 0) {
+	for(int i = 0; i < n; i++) {
+		if(ary[i] > 0) {
 			currLen++;
-			if (currLen == 1) {
+			if(currLen == 1) {
 				currIdx = i;
 			}
-		} else {
-			if (currLen > maxLen) {
+			if(currLen > maxLen) {
 				maxLen = currLen;
 				maxIdx = currIdx;
 			}
+		} else {
 			currLen = 0;
-		}
+		}	
 	}
+	
 	if (maxLen > 0) {
 		printf("The longest positive sequence has the length of : %d \n", maxLen);
 		printf("and the starting point i = %d", maxIdx);

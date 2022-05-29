@@ -1,8 +1,12 @@
 #include <stdio.h>
+#include <math.h>
 
 int smallestCommonMultiple(int a, int b) {
-	int min = (a > b) ? a : b;
-	for(int i = min; ; i++) {
+	int max = abs(a);
+	if(abs(b) > max) {
+		max = abs(b);
+	}
+	for(int i = max; ; i++) {
 		if(i % a == 0 && i % b == 0) {
 			return i;
 		}

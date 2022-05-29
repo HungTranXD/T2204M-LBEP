@@ -1,13 +1,16 @@
 #include <stdio.h>
+#include <math.h>
 
 int greatestCommonDivision(int a, int b) {
-	int max = 1;
-	for(int i = 1; i <= a && i <= b; i++) {
+	int min = abs(a);
+	if(abs(b) < min) {
+		min = abs(b);
+	}
+	for(int i = min; i >= 1; i--) {
 		if(a % i == 0 && b % i == 0) {
-			max = i;
+			return i;
 		}
 	}
-	return max; 
 }
 
 int main() {

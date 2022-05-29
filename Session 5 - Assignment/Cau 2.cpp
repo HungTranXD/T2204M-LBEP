@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
 	int n;
@@ -16,26 +17,18 @@ int main() {
 	int x;
 	printf("Enter x = ");
 	scanf("%d", &x);
-	int offset, minOffset, minIdx;
-	if(arr[0] > x) {
-		minOffset = arr[0] - x;
-		minIdx = 0;
-	} else {
-		minOffset = x - arr[0];
-		minIdx = 0;
-	}
+	int minOffset = abs(arr[0] - x);
 	for(int i = 1; i < n; i++) {
-		if(arr[i] > x) {
-			offset = arr[i] - x;
-		} else {
-			offset = x - arr[i];
-		}
-		if(offset < minOffset) {
-			minOffset = offset;
-			minIdx = i;
+		if(abs(arr[i] - x) < minOffset) {
+			minOffset = abs(arr[i] - x);
 		}
 	}
-	printf("The nearest value from x is a[%d] = %d \n", minIdx, arr[minIdx]);
-	printf("and its distance from x is %d", minOffset);
+	for(int i = 0; i < n; i++) {
+		if(abs(arr[i] - x) == minOffset) {
+			printf("\nThe nearest value from x is a[%d] = %d", i, arr[i]);
+			printf("\nand its distance from x is %d", minOffset);
+		}
+	}
+
 	return 0;
 }

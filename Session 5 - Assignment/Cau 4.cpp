@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
 	int n;
@@ -15,10 +16,8 @@ int main() {
 	}
 	int x = 0;
 	for(int i = 0; i < n; i++) {
-		if(arr[i] > x) {
-			x = arr[i];
-		} else if(arr[i] < -x) {
-			x = - arr[i];
+		if(abs(arr[i]) > x) {
+			x = abs(arr[i]);
 		}
 	}
 	printf("Array elements are in range [%d, %d]", -x, x);

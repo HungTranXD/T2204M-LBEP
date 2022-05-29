@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
 	int n;
@@ -16,19 +17,18 @@ int main() {
 	int x;
 	printf("Enter x = ");
 	scanf("%d", &x);
-	int offset = 0, maxOffset = 0, maxIdx = 0;
+	int maxOffset = 0;
 	for(int i = 0; i < n; i++) {
-		if(arr[i] > x) {
-			offset = arr[i] - x;
-		} else {
-			offset = x - arr[i];
-		}
-		if(offset > maxOffset) {
-			maxOffset = offset;
-			maxIdx = i;
+		if(abs(arr[i] - x) > maxOffset) {
+			maxOffset = abs(arr[i] - x);
 		}
 	}
-	printf("The furthest value from x is a[%d] = %d \n", maxIdx, arr[maxIdx]);
-	printf("and its distance form x is %d", maxOffset);
+	for(int i = 0; i < n; i++) {
+		if(abs(arr[i] - x) == maxOffset) {
+			printf("\nThe furthest value from x is a[%d] = %d", i, arr[i]);
+			printf("\nand its distance form x is %d", abs(arr[i] - x));	
+		}
+	}
+
 	return 0;
 }

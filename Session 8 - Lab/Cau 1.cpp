@@ -9,11 +9,11 @@ int main() {
 	printf("Enter str2 : ");
 	scanf("%s", str2);
 	if(strlen(str1) > strlen(str2)) {
-		printf("String 1 length > string 2 length");
+		printf("String 1 has longer length");
 	} else if(strlen(str1) == strlen(str2)) {
 		printf("2 strings have the same length");
 	} else {
-		printf("String 1 length < string 2 length");
+		printf("String 2 has length");
 	}
 	return 0;
 }
